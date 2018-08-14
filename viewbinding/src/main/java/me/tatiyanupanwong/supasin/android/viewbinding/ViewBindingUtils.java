@@ -18,6 +18,7 @@ package me.tatiyanupanwong.supasin.android.viewbinding;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.support.annotation.CheckResult;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -31,12 +32,20 @@ public final class ViewBindingUtils {
     private ViewBindingUtils() {}
 
     @SuppressWarnings("unchecked")
-    public static <T extends View> T bind(@NonNull View source, @IdRes int viewId) {
+    @CheckResult
+    public static <T extends View> T bind(@NonNull Activity source, @IdRes int viewId) {
         return (T) source.findViewById(viewId);
     }
 
     @SuppressWarnings("unchecked")
-    public static <T extends View> T bind(@NonNull Activity source, @IdRes int viewId) {
+    @CheckResult
+    public static <T extends View> T bind(@NonNull Dialog source, @IdRes int viewId) {
+        return (T) source.findViewById(viewId);
+    }
+
+    @SuppressWarnings("unchecked")
+    @CheckResult
+    public static <T extends View> T bind(@NonNull View source, @IdRes int viewId) {
         return (T) source.findViewById(viewId);
     }
 
