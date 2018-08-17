@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2018 Supasin Tatiyanupanwong
+ * Copyright (C) 2015 Supasin Tatiyanupanwong
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,9 +33,9 @@ class MainActivityKt : AppCompatActivity() {
         views.textView.setText(R.string.app_name)
     }
 
-    private class ViewHolder internal constructor(activity: Activity) {
+    private class ViewHolder(activity: Activity) {
         @BindView(R.id.textView)
-        lateinit var textView: TextView
+        lateinit var textView: TextView private set
 
         init {
             ViewBindingUtils.bind(this, activity)
