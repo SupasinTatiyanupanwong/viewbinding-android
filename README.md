@@ -1,6 +1,10 @@
-Android View Binding Library
-============================
+# View Binding
+
 Eliminates boilerplate `findViewById()` calls by using `@BindView` on fields.
+
+## Usage
+
+Annotate fields with `@BindView` and a view ID to the corresponding view in your layout.
 
 ```java
 public class LoginActivity extends Activity {
@@ -8,51 +12,66 @@ public class LoginActivity extends Activity {
     @BindView(R.id.pass) EditText pass;
     @BindView(R.id.submit) View submit;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    @Override public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         ViewBindingUtils.bind(this);
-        // TODO: Use fields...
+        // TODO use fields...
     }
 }
 ```
+
+You can perform binding on arbitrary objects by supplying your own view root.
 
 ```java
-public class LoginActivity extends Activity {
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+public class LoginFragment extends Fragment {
+    @BindView(R.id.user) EditText user;
+    @BindView(R.id.pass) EditText pass;
+    @BindView(R.id.submit) View submit;
 
-        ViewHolder views = new ViewHolder(this);
-        // TODO: Use fields...
+    @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
-    private static final class ViewHolder {
-        @BindView(R.id.user) EditText user;
-        @BindView(R.id.pass) EditText pass;
-        @BindView(R.id.submit) View submit;
-
-        ViewHolder(Activity activity) {
-            ViewBindingUtils.bind(this, activity);
-        }
+    @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        ViewBindingUtils.bind(this, view);
+        // TODO use fields...
     }
 }
 ```
 
-Download
---------
+To reset binding, call `unbind` method to set annotated fields to `null`.
+
+```java
+public class LoginFragment extends Fragment {
+    @BindView(R.id.user) EditText user;
+    @BindView(R.id.pass) EditText pass;
+    @BindView(R.id.submit) View submit;
+
+    @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_login, container, false);
+    }
+
+    @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        ViewBindingUtils.bind(this, view);
+        // TODO use fields...
+    }
+
+    @Override public void onDestroyView() {
+        ViewBindingUtils.unbind(this);
+        super.onDestroyView();
+    }
+}
+```
+
+## Download
 
 ```groovy
-dependencies {
-  implementation 'me.tatiyanupanwong.supasin.android:viewbinding:1.2.1'
-}
+implementation 'me.tatiyanupanwong.supasin.android.libraries.viewbinding:viewbinding:1.3.0'
 ```
 
-License
-=======
+## License
 
 ```
 Copyright (C) 2015 Supasin Tatiyanupanwong

@@ -14,18 +14,32 @@
  * limitations under the License.
  */
 
-package me.tatiyanupanwong.supasin.android.viewbinding;
-
-import android.support.annotation.IdRes;
+package me.tatiyanupanwong.supasin.android.libraries.viewbinding;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import androidx.annotation.IdRes;
+
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * Indicates a view ID to which the annotated field will be bound. The view
+ * will automatically be cast to the field type.
+ *
+ * <pre><code>
+ * {@literal @}BindView(R.id.title) TextView title;
+ * </code></pre>
+ */
 @Retention(RUNTIME)
 @Target(FIELD)
 public @interface BindView {
-    @IdRes int value();
+    /**
+     * Returns a view ID to which the field will be bound.
+     *
+     * @return a view ID to which the field will be bound
+     */
+    @IdRes
+    int value();
 }

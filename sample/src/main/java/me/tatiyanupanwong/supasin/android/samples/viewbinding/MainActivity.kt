@@ -14,31 +14,22 @@
  * limitations under the License.
  */
 
-package me.tatiyanupanwong.supasin.samples.android.viewbinding
+package me.tatiyanupanwong.supasin.android.samples.viewbinding
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import me.tatiyanupanwong.supasin.android.viewbinding.BindView
-import me.tatiyanupanwong.supasin.android.viewbinding.ViewBindingUtils
+import me.tatiyanupanwong.supasin.android.libraries.viewbinding.BindView
+import me.tatiyanupanwong.supasin.android.libraries.viewbinding.ViewBindingUtils
 
-class MainActivityKt : AppCompatActivity() {
+class MainActivity : Activity() {
+    @BindView(R.id.textView)
+    lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val views = ViewHolder(this)
-        views.textView.setText(R.string.app_name)
-    }
-
-    private class ViewHolder(activity: Activity) {
-        @BindView(R.id.textView)
-        lateinit var textView: TextView private set
-
-        init {
-            ViewBindingUtils.bind(this, activity)
-        }
+        ViewBindingUtils.bind(this)
+        textView.setText(R.string.app_name)
     }
 }

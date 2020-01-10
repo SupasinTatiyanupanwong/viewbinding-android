@@ -2,29 +2,18 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
 
     defaultConfig {
-        applicationId "me.tatiyanupanwong.supasin.samples.android.viewbinding"
+        applicationId "me.tatiyanupanwong.supasin.android.samples.viewbinding"
 
-        minSdkVersion 16
-        targetSdkVersion 27
-
-        versionCode 1
-        versionName "1.0"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
+        minSdkVersion 14
+        targetSdkVersion 29
     }
 }
 
 dependencies {
     implementation project(':viewbinding')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

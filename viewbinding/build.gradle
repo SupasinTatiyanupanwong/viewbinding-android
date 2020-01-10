@@ -1,21 +1,20 @@
 apply plugin: 'com.android.library'
 
 ext {
-    bintrayRepo = 'android'
+    bintrayRepo = 'android.libraries.viewbinding'
     bintrayName = 'viewbinding'
 
-    publishedGroupId = 'me.tatiyanupanwong.supasin.android'
-    libraryName = 'View Binding'
-    artifact = 'viewbinding'
+    publishedGroupId = 'me.tatiyanupanwong.supasin.android.libraries.viewbinding'
+    publishedArtifactId = 'viewbinding'
 
+    libraryName = 'View Binding'
     libraryDescription = 'Eliminates boilerplate findViewById() calls by using @BindView on fields.'
+    libraryVersion = '1.3.0'
 
     siteUrl = 'https://github.com/SupasinTatiyanupanwong/viewbinding-android'
     gitUrl = 'https://github.com/SupasinTatiyanupanwong/viewbinding-android.git'
 
-    libraryVersion = '1.2.1'
-
-    developerId = 'SupasinTatiyanupanwong'
+    developerId = 'supasintatiyanupanwong'
     developerName = 'Supasin Tatiyanupanwong'
     developerEmail = 'supasin@tatiyanupanwong.me'
 
@@ -25,25 +24,17 @@ ext {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 27
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
+        minSdkVersion 14
+        targetSdkVersion 29
     }
 }
 
 dependencies {
-    implementation 'com.android.support:support-annotations:27.1.1'
+    compileOnly 'androidx.annotation:annotation:1.1.0'
 }
 
-if (project.rootProject.file('bintray.properties').exists()) {
-    apply from: '../install.gradle'
-    apply from: '../bintray.gradle'
-}
+apply from: '../install.gradle'
+apply from: '../bintray.gradle'
