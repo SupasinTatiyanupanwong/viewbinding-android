@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Supasin Tatiyanupanwong
+ * Copyright 2015 Supasin Tatiyanupanwong
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package me.tatiyanupanwong.supasin.android.libraries.viewbinding;
+package me.tatiyanupanwong.supasin.libraries.android.viewbinding;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.view.View;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import androidx.annotation.CheckResult;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Binds {@link BindView} annotated fields in the specified target to its

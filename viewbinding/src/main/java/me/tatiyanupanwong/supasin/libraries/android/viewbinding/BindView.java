@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Supasin Tatiyanupanwong
+ * Copyright 2015 Supasin Tatiyanupanwong
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.tatiyanupanwong.supasin.android.libraries.viewbinding;
+package me.tatiyanupanwong.supasin.libraries.android.viewbinding;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
